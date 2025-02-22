@@ -113,7 +113,7 @@ public class CustomGrab : MonoBehaviour
         // You also need to add Rigidbody to the controllers for these functions to be triggered
         // Make sure gravity is disabled though, or your controllers will (virtually) fall to the ground
 
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
 
         Transform t = other.transform;
         if(t && t.tag.ToLower()=="grabbable")
@@ -122,7 +122,7 @@ public class CustomGrab : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log("Collision EXIT");
+        //Debug.Log("Collision EXIT");
         Transform t = other.transform;
         if( t && t.tag.ToLower()=="grabbable")
             nearObjects.Remove(t);

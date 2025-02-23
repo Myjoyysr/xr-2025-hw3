@@ -109,7 +109,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Lines: 0.8
+    - _Lines: 0.9
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -119,11 +119,11 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Tiles: 15
+    - _Tiles: 9
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0.44082776, g: 0.15232792, b: 0, a: 1}
+    - _Color: {r: 0.69803923, g: 0.12487358, b: 0.015686272, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

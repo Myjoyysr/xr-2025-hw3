@@ -18,7 +18,7 @@ public class RotateBridge : MonoBehaviour
     {
         if (!target1 && !target2 && !isRotating && !finishedRotation){
             isRotating = true;
-            targetRotation = Quaternion.Euler(transform.eulerAngles.x * -90f, transform.eulerAngles.y,transform.eulerAngles.z);
+            targetRotation = Quaternion.Euler(transform.eulerAngles.x -90f, transform.eulerAngles.y,transform.eulerAngles.z);
         }
 
         if (isRotating){

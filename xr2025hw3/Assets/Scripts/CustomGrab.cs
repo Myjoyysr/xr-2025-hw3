@@ -41,7 +41,7 @@ public class CustomGrab : MonoBehaviour
 
         if (grabbing)
         {
-            Debug.Log("grabbing");
+            //Debug.Log("grabbing");
 
             // Grab nearby object or the object in the other hand
             if (!grabbedObject){
@@ -76,12 +76,12 @@ public class CustomGrab : MonoBehaviour
                     // 2. calculate and apply rotation
                     grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
 
-                }else{
+                }/*else{
 
                     // 2. calculate and apply rotation (double angle)
                     deltaRotation.ToAngleAxis(out float angle, out Vector3 axis);
                     grabbedObject.rotation = Quaternion.AngleAxis(angle * 2.0f, axis) * grabbedObject.rotation;
-                }
+                }*/
  
                 // 3. calculate and apply new position related to the the controller
                 Vector3 controllerVector = grabbedObject.position - transform.position;

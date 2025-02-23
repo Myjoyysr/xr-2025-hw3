@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "RightHandPrimary",
+                    "type": "Value",
+                    "id": "d2dc51d8-935f-438b-94a8-88e60c26321d",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "ThumbFingerTouch",
                     "type": "Value",
                     "id": "9fa79d74-3543-4812-a2bf-aea7efd19bcd",
@@ -33,6 +42,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "IndexFingerTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "62c5516e-517e-4024-a25d-ed23300c049e",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -96,6 +116,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "LeftHandPrimary",
+                    "type": "Value",
+                    "id": "6fe68257-2e12-4ba4-9d6c-8e7c3154215e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "ThumbFingerTouch",
                     "type": "Value",
                     "id": "95f16062-53bf-4ffe-ba34-099680707d15",
@@ -114,6 +143,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "IndexFingerTouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "02ed49b0-fbf6-4441-b4d1-27e086f1e0eb",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

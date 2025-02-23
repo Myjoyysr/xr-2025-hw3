@@ -29,13 +29,15 @@ public class Target : MonoBehaviour
     }
 
 
-    private void OnCollisionEnter(Collision collision){
+    private void OnTriggerEnter(Collider other){
+        Debug.Log("Collision");
         if (goingDown){
             return;
         }
 
 
-        if (collision.gameObject.CompareTag("Bullet")){
+        if (other.CompareTag("Bullet")){
+            Debug.Log("Collision WITH BULLET");
             goingDown = true;
             Destroy(gameObject, lifeTime);
         }

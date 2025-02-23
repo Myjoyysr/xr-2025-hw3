@@ -26,8 +26,8 @@ public class Lever : MonoBehaviour
         hinge = GetComponent<HingeJoint>();
 
         JointLimits limits = hinge.limits;
-        limits.min = angle+1;
-        limits.max = -angle+1;
+        limits.min = angle+15;
+        limits.max = -angle-15;
 
         hinge.limits = limits;
 

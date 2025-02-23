@@ -40,7 +40,7 @@ public class HandAnimController : MonoBehaviour
 
     public Vector3 targetPositionUpdate;
 
-    private bool gunLoaded;
+    public bool gunLoaded = false;
 
 
     public GameObject bulletPrefab;
@@ -85,14 +85,23 @@ public class HandAnimController : MonoBehaviour
         animator.SetFloat("Thumb", thumbTouch);
 
         if (grip > 0.9f && trigger < 0.1f && indexTouch < 0.1f && thumbTouch < 0.1f){
+            //Debug.Log("Gun loaded");
             gunLoaded = true;
         }
 
         if (grip < 0.9f || trigger >= 0.1f || indexTouch >= 0.1f){
+            //Debug.Log("gun not loaded");
             gunLoaded = false;
         }
+/*
+        if (mainButton.action.IsPressed()){
+            //Debug.Log("Pressed MainButton");
+            //Debug.Log(gunLoaded);
+            
+        }*/
 
         if (gunLoaded && mainButton.action.IsPressed()){
+            //Debug.Log("Shooting");
             FingerShoot();
             gunLoaded = false;
         }
@@ -115,6 +124,7 @@ public class HandAnimController : MonoBehaviour
     }
 
     private void FingerShoot(){
+        
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
         Rigidbody bulletRigid = bullet.GetComponent<Rigidbody>();
 

@@ -54,7 +54,7 @@ public class Lever : MonoBehaviour
         }
         if(goingDown){
             bridge.transform.position = Vector3.MoveTowards(bridge.transform.position, bridgeDown.position, bridgeSpeed * Time.deltaTime);
-            wall.transform.position = Vector3.MoveTowards(bridge.transform.position, wallUp.position, bridgeSpeed * Time.deltaTime);
+            wall.transform.position = Vector3.MoveTowards(wall.transform.position, wallUp.position, bridgeSpeed * Time.deltaTime);
         }
     }
 }

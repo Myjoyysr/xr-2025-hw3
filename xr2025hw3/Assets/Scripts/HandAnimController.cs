@@ -18,6 +18,9 @@ public class HandAnimController : MonoBehaviour
 
     public InputActionReference mainButton;
 
+    //public InputActionReference moveButton;
+    //public bool isMoving = false;
+
 
 
     public float indexTouch;
@@ -66,23 +69,39 @@ public class HandAnimController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //_body.detectCollisions = false;
+/*    
+        isMoving = moveButton.action.ReadValue<Vector2>().magnitude > 0.1f;
 
-        PhysicsMove();
+        if(isMoving){
+            _body.isKinematic = true;
 
-        if (!animator) return;
-        grip = gripInput.action.ReadValue<float>();
-        trigger = triggerInput.action.ReadValue<float>();
+            transform.position = _followTarget.position;
+            transform.rotation = _followTarget.rotation;
 
-        indexTouch = indexInput.action.ReadValue<float>();
-        thumbTouch = thumbInput.action.ReadValue<float>();
 
-        animator.SetFloat("Grip", grip);
-        animator.SetFloat("Trigger", trigger);
-        animator.SetFloat("Index", indexTouch);
-        animator.SetFloat("Thumb", thumbTouch);
+        }else{
+            _body.isKinematic = false;
+        }*/
+
+
+            PhysicsMove();
+
+            if (!animator) return;
+            grip = gripInput.action.ReadValue<float>();
+            trigger = triggerInput.action.ReadValue<float>();
+
+            indexTouch = indexInput.action.ReadValue<float>();
+            thumbTouch = thumbInput.action.ReadValue<float>();
+
+            animator.SetFloat("Grip", grip);
+            animator.SetFloat("Trigger", trigger);
+            animator.SetFloat("Index", indexTouch);
+            animator.SetFloat("Thumb", thumbTouch);
+
+        
 
         if (grip > 0.9f && trigger < 0.1f && indexTouch < 0.1f && thumbTouch < 0.1f){
             //Debug.Log("Gun loaded");

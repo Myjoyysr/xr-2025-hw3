@@ -13,6 +13,9 @@ public class RotateBridge : MonoBehaviour
     private Quaternion targetRotation;
 
 
+    public GameObject wallBlock;
+
+
     // Update is called once per frame
     void Update()
     {
@@ -28,6 +31,10 @@ public class RotateBridge : MonoBehaviour
                 transform.rotation = targetRotation;
                 isRotating = false;
                 finishedRotation = true;
+
+                if (wallBlock != null){
+                    Destroy(wallBlock);
+                }
             }
         }
     }

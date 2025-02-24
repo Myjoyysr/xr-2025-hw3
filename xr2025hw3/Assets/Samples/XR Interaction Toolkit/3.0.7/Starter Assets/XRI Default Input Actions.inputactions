@@ -556,6 +556,17 @@
                 },
                 {
                     "name": "",
+                    "id": "3cf785c0-4ec5-4d95-b8ba-b0c8a055c4ea",
+                    "path": "<XRInputV1::Oculus::OculusTouchControllerOpenXR>{LeftHand}/haptic",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Haptic Device",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "97a0351f-659b-482a-8fa0-19015ccd055e",
                     "path": "<XRController>{LeftHand}/trackingState",
                     "interactions": "",
@@ -1618,6 +1629,17 @@
                     "name": "",
                     "id": "6011e1e6-b2dd-4cb1-8da5-29b03868f2c5",
                     "path": "<XRController>{RightHand}/*",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Haptic Device",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a1d0dac-643c-4deb-bc97-3002ca108f0d",
+                    "path": "<XRInputV1::Oculus::OculusTouchControllerOpenXR>{RightHand}/haptic",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

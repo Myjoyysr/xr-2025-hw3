@@ -14,7 +14,7 @@ public class FingerCollision : MonoBehaviour
         {"PinkyCollision", new List<bool> {false,false,false}}
 
     };
-
+/*
     public Collider thumbOne;
     public Collider thumbTwo;
     public Collider thumbThree;
@@ -33,7 +33,7 @@ public class FingerCollision : MonoBehaviour
 
     public Collider pinkyOne;
     public Collider pinkyTwo;
-    public Collider pinkyThree;
+    public Collider pinkyThree;*/
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -42,31 +42,33 @@ public class FingerCollision : MonoBehaviour
         animator = GetComponent<Animator>();   
     }
 
-    private void OnTriggerEnter(Collider other){
-        UpdateCollision(other, true);
-        //Debug.Log("collision");
+    private void OnCollisionEnter(Collision other){
+        UpdateCollision(other.collider, true);
+        Debug.Log("collision");
     }
 
-    private void OnTriggerExit(Collider other){
-        UpdateCollision(other, false);
-        //Debug.Log("Exit Collision");
+    private void OnCollisionExit(Collision other){
+        UpdateCollision(other.collider, false);
+        Debug.Log("Exit Collision");
     }
 
     private void UpdateCollision(Collider collider, bool value){
-        if (collider == thumbOne || collider == thumbTwo || collider == thumbThree){
+        if (collider.name == "ThumbCollision"){
             UpdateFinger("ThumbCollision", value);
         }
-        else if (collider == indexOne || collider == indexTwo || collider == indexThree){
+        else if (collider.name == "IndexCollider"){
             UpdateFinger("IndexCollision", value);
         }
-        else if (collider == middleOne || collider == middleTwo || collider == middleThree){
+        else if (collider.name == "MiddleCollider"){
             UpdateFinger("MiddleCollision", value);
         }
-                else if (collider == ringOne || collider == ringTwo || collider == ringThree){
+        else if (collider.name == "RingCollider"){
             UpdateFinger("RingCollision", value);
         }
-                else if (collider == pinkyOne || collider == pinkyTwo || collider == pinkyThree){
+        else if (collider.name == "PinkyCollider"){
             UpdateFinger("PinkyCollision", value);
+        }else{
+            Debug.Log($"NOTHING CORRECT {collider.name}");
         }
         
     }
@@ -83,7 +85,7 @@ public class FingerCollision : MonoBehaviour
 
         bool isCollisions = collisions.Contains(true);
 
-
+        Debug.Log($"{finger} {isCollisions}");
         animator.SetBool($"{finger}", isCollisions);
     }
 }

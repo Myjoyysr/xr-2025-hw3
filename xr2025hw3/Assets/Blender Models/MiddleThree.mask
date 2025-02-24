@@ -6,7 +6,7 @@ AvatarMask:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ring
+  m_Name: MiddleThree
   m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
   m_Elements:
   - m_Path: 
@@ -26,15 +26,15 @@ AvatarMask:
   - m_Path: Armature/Bone/Bone.001/Bone.002/Bone.003/Bone.004/Bone.004_end
     m_Weight: 0
   - m_Path: Armature/Bone/Bone.005
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Bone/Bone.005/Bone.006
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Bone/Bone.005/Bone.006/Bone.007
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Bone/Bone.005/Bone.006/Bone.007/Bone.008
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Bone/Bone.005/Bone.006/Bone.007/Bone.008/Bone.008_end
-    m_Weight: 1
+    m_Weight: 0
   - m_Path: Armature/Bone/Bone.009
     m_Weight: 0
   - m_Path: Armature/Bone/Bone.009/Bone.010
@@ -42,9 +42,9 @@ AvatarMask:
   - m_Path: Armature/Bone/Bone.009/Bone.010/Bone.011
     m_Weight: 0
   - m_Path: Armature/Bone/Bone.009/Bone.010/Bone.011/Bone.012
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Bone/Bone.009/Bone.010/Bone.011/Bone.012/Bone.012_end
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Armature/Bone/Bone.013
     m_Weight: 0
   - m_Path: Armature/Bone/Bone.013/Bone.014

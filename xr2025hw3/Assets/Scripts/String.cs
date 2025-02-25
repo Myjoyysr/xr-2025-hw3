@@ -1,6 +1,9 @@
 using UnityEngine;
-
 using UnityEngine.InputSystem;
+
+using System.Collections;
+using System.Collections.Generic;
+
 
 public class String : MonoBehaviour
 {
@@ -33,6 +36,9 @@ public class String : MonoBehaviour
 
     public Transform arrowPointRight;
     public Transform arrowPointLeft;
+
+    public Transform arrowPointLeftSecondary;
+    public Transform arrowPointRightSecondary;
     
     public GameObject arrowPrefab;
     public Transform arrowSpawnPoint;
@@ -43,12 +49,17 @@ public class String : MonoBehaviour
     private bool shootingRight = false;
     private bool shootingLeft = false;
 
-    public float swapSideThreshold = 30f;
-    
+    public float tiltThreshold = 30f;
 
     private bool canShoot = false;
 
     public Transform bow;
+
+
+    private bool swapped = false;
+    private bool tiltedWhere = false;
+
+    private List<Transform> resetPositions =new List<Transform>();
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,6 +74,11 @@ public class String : MonoBehaviour
 
         defaultPosition = middlePoint.position;
 
+        resetPositions.Add(arrowPointRight);
+        resetPositions.Add(arrowPointRightSecondary);
+        resetPositions.Add(arrowPointLeft);
+        resetPositions.Add(arrowPointLeftSecondary);
+
         StringUpdate();
 
     }
@@ -70,7 +86,7 @@ public class String : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        SwapSides();
         defaultPosition = (topPoint.position + bottomPoint.position) / 2f;
 
 
@@ -113,11 +129,13 @@ public class String : MonoBehaviour
                 canShoot = false;
                 shootingRight = false;
                 shootingLeft = false;
+                resetArrowSwapping();
             }else if(shootingLeft && !leftTrigger){
                 ShootArrow();
                 canShoot = false;
                 shootingRight = false;
                 shootingLeft = false;
+                resetArrowSwapping();
             }
         }
 
@@ -135,7 +153,7 @@ public class String : MonoBehaviour
             }
         }
 
-        
+
 
 
     }
@@ -177,11 +195,22 @@ public class String : MonoBehaviour
         if (currentArrow == null){
             currentArrow = Instantiate(arrowPrefab, middlePoint.position, middlePoint.rotation);
             currentArrow.transform.SetParent(middlePoint);
+
         }
 
         if (isGrabbed && grabPoint == rightHold){
+            resetArrowSwapping();
+            swapped = false;
+            tiltedWhere = true;
+            SwapSides();
             currentArrow.transform.LookAt(arrowPointRight);
+
+
         }else if(isGrabbed && grabPoint == leftHold){
+            resetArrowSwapping();
+            swapped = false;
+            tiltedWhere = false;
+            SwapSides();
             currentArrow.transform.LookAt(arrowPointLeft);
         }
     }
@@ -207,6 +236,57 @@ public class String : MonoBehaviour
 
         rb.AddForce(shootDirection * pullValue * arrowSpeed, ForceMode.Impulse);
         currentArrow = null;
+    }
+
+    private void SwapSides(){
+        float bowTilted = bow.localEulerAngles.z;
+
+        if (bowTilted > 180f){
+            bowTilted -= 360f;
+        }
+
+        //Debug.Log(bowTilted);
+
+
+
+        if (bowTilted > tiltThreshold || bowTilted < -tiltThreshold){
+
+            if (!swapped){
+                Debug.Log("not swapped");
+                if (bowTilted > tiltThreshold && !tiltedWhere){
+                    Debug.Log("rilt right, swapping");
+                    doSwap();
+
+                    tiltedWhere = true;
+
+                }else if(bowTilted < -tiltThreshold && tiltedWhere){
+                    Debug.Log("tilt left, swapping");
+                    doSwap();
+
+                    tiltedWhere = false;
+                }
+                swapped = true;
+            }
+
+        }else{
+            swapped = false;
+        }
+    }
+
+    private void doSwap(){
+                    Transform temp = arrowPointRight;
+                    arrowPointRight = arrowPointRightSecondary;
+                    arrowPointRightSecondary = temp;  
+                    temp = arrowPointLeft;
+                    arrowPointLeft = arrowPointLeftSecondary;
+                    arrowPointLeftSecondary = temp;
+    }
+
+    private void resetArrowSwapping() {
+        arrowPointRight = resetPositions[0];
+        arrowPointRightSecondary = resetPositions[1];
+        arrowPointLeft= resetPositions[2];
+        arrowPointLeftSecondary= resetPositions[3];
     }
 }
 

@@ -1723,13 +1723,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193302369}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0033055362, y: -0.11558709, z: 0.6721816, w: -0.73130065}
-  m_LocalPosition: {x: 0.037, y: 0.0269, z: 0.0141}
+  m_LocalRotation: {x: -0.031648934, y: -0.08936353, z: 0.70048153, w: -0.7073459}
+  m_LocalPosition: {x: 0.0264, y: 0.0251, z: 0.0195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2129665786}
-  m_LocalEulerAnglesHint: {x: -189.22, y: 189.6, z: 95.6}
+  m_LocalEulerAnglesHint: {x: -189.786, y: 184.778, z: 90.968}
 --- !u!1 &205714726
 GameObject:
   m_ObjectHideFlags: 0
@@ -11979,13 +11979,15 @@ MonoBehaviour:
   leftTriggerAction: {fileID: 2526168894431210536, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
   anim: {fileID: 0}
   maxPullDistance: 0.8
-  arrowPointRight: {fileID: 459252537}
-  arrowPointLeft: {fileID: 1227232224}
+  arrowPointRight: {fileID: 1227232224}
+  arrowPointLeft: {fileID: 459252537}
+  arrowPointLeftSecondary: {fileID: 1227232224}
+  arrowPointRightSecondary: {fileID: 459252537}
   arrowPrefab: {fileID: 7268173543904069627, guid: 342d9cb248d23c24c8f64761b54d8a94, type: 3}
   arrowSpawnPoint: {fileID: 274670000}
   arrowSpeed: 50
-  swapSideThreshold: 0.0001
-  bow: {fileID: 1607200265}
+  tiltThreshold: 25
+  bow: {fileID: 762050149}
 --- !u!120 &1232340715
 LineRenderer:
   serializedVersion: 2
@@ -14618,11 +14620,6 @@ Transform:
   - {fileID: 175309583}
   m_Father: {fileID: 1353379183}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1607200265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3355967116559691914, guid: 57fe17e034cbfb44aa48e73eb8346956, type: 3}
-  m_PrefabInstance: {fileID: 762050145}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1623206168
 GameObject:
   m_ObjectHideFlags: 0
@@ -17591,7 +17588,7 @@ Transform:
   m_GameObject: {fileID: 1930635233}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 33.12, y: 2.35, z: 28.77}
+  m_LocalPosition: {x: 44.287, y: 2.35, z: 49.908}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

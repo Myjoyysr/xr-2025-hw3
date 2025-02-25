@@ -14,6 +14,8 @@ public class Target : MonoBehaviour
     public float floatingSpeed = 1f;
     public float floatingHeight = 0.3f;
 
+    public string typeTag = "Bullet";
+
     void Start() {
         startPosition = transform.position;
         endPosition = startPosition - new Vector3(0,drop,0);
@@ -36,7 +38,7 @@ public class Target : MonoBehaviour
         }
 
 
-        if (other.CompareTag("Bullet")){
+        if (other.CompareTag(typeTag)){
             Debug.Log("Collision WITH BULLET");
             goingDown = true;
             Destroy(gameObject, lifeTime);

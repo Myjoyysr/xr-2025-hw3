@@ -42,9 +42,13 @@ public class String : MonoBehaviour
 
     private bool shootingRight = false;
     private bool shootingLeft = false;
+
+    public float swapSideThreshold = 30f;
     
 
     private bool canShoot = false;
+
+    public Transform bow;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -94,15 +98,15 @@ public class String : MonoBehaviour
         }
     
         if (isGrabbed && grabPoint){
-            middlePoint.position = grabPoint.position;/*
+            middlePoint.position = grabPoint.position;
             if (currentArrow == null){
                 SpawnArrow();
-            }*/
+            }
 
         }else{
             middlePoint.position = Vector3.Lerp(middlePoint.position, defaultPosition, Time.deltaTime * returnSpeed);
         }
-/*
+
         if (canShoot && currentArrow){
             if (shootingRight && !rightTrigger){
                 ShootArrow();
@@ -115,17 +119,23 @@ public class String : MonoBehaviour
                 shootingRight = false;
                 shootingLeft = false;
             }
-        }*/
+        }
 
         StringUpdate();
 
         transform.position = middlePoint.position;
         transform.rotation = middlePoint.rotation;
 
+        if (currentArrow != null){
+            currentArrow.transform.position = middlePoint.position;
+            if (grabPoint == rightHold){
+            currentArrow.transform.LookAt(arrowPointRight);
+            }else if(grabPoint == leftHold){
+            currentArrow.transform.LookAt(arrowPointLeft);
+            }
+        }
 
-
-
-
+        
 
 
     }
@@ -139,14 +149,22 @@ public class String : MonoBehaviour
 
     private void OnTriggerEnter(Collider other){
         //Debug.Log("COLLISION");
-        if (other.CompareTag("Right") && rightTrigger && !isGrabbed){
+
+        
+        float distanceRight = Vector3.Distance(bow.transform.position, rightHold.position);
+        float distanceLeft = Vector3.Distance(bow.transform.position, leftHold.position);
+
+        bool isItRight = distanceRight > distanceLeft;
+
+
+        if (other.CompareTag("Right") && rightTrigger && !isGrabbed && isItRight){
             //Debug.Log("COLLISION RIGHT");
             isGrabbed = true;
             grabPoint = rightHold;
             shootingRight = true;
             shootingLeft = false;
 
-        }else if(other.CompareTag("Left")&&rightTrigger && !isGrabbed){
+        }else if(other.CompareTag("Left")&&rightTrigger && !isGrabbed && !isItRight){
                 //Debug.Log("COLLISION LEFT");
                 isGrabbed = true;
                 grabPoint = leftHold;

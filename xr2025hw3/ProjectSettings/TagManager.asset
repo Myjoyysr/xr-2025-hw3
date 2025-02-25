@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Left
   - Right
+  - Arrow
   layers:
   - Default
   - TransparentFX

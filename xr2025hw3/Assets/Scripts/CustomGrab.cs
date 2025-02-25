@@ -17,13 +17,16 @@ public class CustomGrab : MonoBehaviour
     private Quaternion lastRotation;
     //private Vector3 lastLocalPosition;
 
-    public InputActionReference doubleRotationAction;
-    private bool doubleRotation;
+    public InputActionReference triggerAction;
+    private bool trigger;
+
+    public Transform holdPosition;
+    public float speed = 100f;
 
     private void Start()
     {
         action.action.Enable();
-        doubleRotationAction.action.Enable();
+        triggerAction.action.Enable();
 
         // Find the other hand
         foreach(CustomGrab c in transform.parent.GetComponentsInChildren<CustomGrab>())
@@ -31,78 +34,52 @@ public class CustomGrab : MonoBehaviour
             if (c != this)
                 otherHand = c;
         }
-
     }
     
     void Update()
     {
         grabbing = action.action.IsPressed();
-        doubleRotation = doubleRotationAction.action.IsPressed();
+        trigger = triggerAction.action.IsPressed();
 
         if (grabbing)
         {
-            //Debug.Log("grabbing");
-
-            // Grab nearby object or the object in the other hand
-            if (!grabbedObject){
-                grabbedObject = nearObjects.Count > 0 ? nearObjects[0] : otherHand.grabbedObject;
+            // Grab nearby object
+            if (!grabbedObject && nearObjects.Count > 0){
+                Transform nearObject = nearObjects[0];
+                if (otherHand.grabbedObject != nearObject){
+                    grabbedObject = nearObjects[0];
+                }
             }
+        
             
-            if (grabbedObject)
-            {
-                // Change these to add the delta position and rotation instead
-                // Save the position and rotation at the end of Update function, so you can compare previous pos/rot to current here
-                //grabbedObject.position = transform.position;
-                //grabbedObject.rotation = transform.rotation;
-                // 1. calculate the deltas:
-                Vector3 deltaPosition = transform.position - lastPosition;
-                Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
-
-                if (otherHand.grabbedObject==grabbedObject && otherHand.grabbing){
-                    //rotation
-                    //deltaRotation = deltaRotation * Quaternion.Inverse(otherHand.lastRotation) * otherHand.transform.rotation;
-                    //deltaRotation = Quaternion.Slerp((Quaternion.Inverse(otherHand.lastRotation) * otherHand.transform.rotation), deltaRotation, 0.5f);
-
-                    Vector3 deltaPositionBoth = deltaPosition + (otherHand.transform.position -  otherHand.lastPosition);// * 0.5f;
-                    grabbedObject.position = grabbedObject.position + deltaPositionBoth * 0.5f;
-
-                }else{
+            if (grabbedObject){
+                //"normal" grabbing interaction
+                if(!trigger){
+                    // 1. calculate the deltas:
+                    Vector3 deltaPosition = transform.position - lastPosition;
+                    Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
+                    // apply position and rotation
                     grabbedObject.position = grabbedObject.position+ deltaPosition;
-                }
-      
-                //grabbedObject.position = grabbedObject.position+ deltaPosition;
-
-                if (!doubleRotation){
-                    // 2. calculate and apply rotation
                     grabbedObject.rotation = deltaRotation * grabbedObject.rotation;
-
-                }/*else{
-
-                    // 2. calculate and apply rotation (double angle)
-                    deltaRotation.ToAngleAxis(out float angle, out Vector3 axis);
-                    grabbedObject.rotation = Quaternion.AngleAxis(angle * 2.0f, axis) * grabbedObject.rotation;
-                }*/
- 
-                // 3. calculate and apply new position related to the the controller
-                Vector3 controllerVector = grabbedObject.position - transform.position;
-                controllerVector = deltaRotation * controllerVector;
-
-                if (otherHand.grabbedObject == grabbedObject && otherHand.grabbing){
+                    // Set it relative to controller
+                    Vector3 controllerVector = grabbedObject.position - transform.position;
+                    controllerVector = deltaRotation * controllerVector;
                     grabbedObject.position = transform.position + (controllerVector);
-                    
+                //we move object to the hold position
                 }else{
-                    grabbedObject.position = transform.position + controllerVector;
+                    grabbedObject.position = Vector3.MoveTowards(grabbedObject.position, holdPosition.position, speed * 10f* Time.deltaTime);
+                    grabbedObject.rotation = Quaternion.RotateTowards(grabbedObject.rotation, holdPosition.rotation, speed * 100f * Time.deltaTime);
                 }
-
             }
-        }
-        // If let go of button, release object
-        else if (grabbedObject)
-            grabbedObject = null;
 
-        // Should save the current position and rotation here
-        lastPosition = transform.position;
-        lastRotation = transform.rotation;
+
+        }else if (grabbedObject){
+            grabbedObject = null;
+        }
+
+            // Should save the current position and rotation here
+            lastPosition = transform.position;
+            lastRotation = transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)

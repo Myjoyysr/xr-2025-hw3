@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Grabbable
   - Bullet
+  - Left
+  - Right
   layers:
   - Default
   - TransparentFX

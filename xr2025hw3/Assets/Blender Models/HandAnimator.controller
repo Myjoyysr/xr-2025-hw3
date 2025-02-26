@@ -897,7 +897,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Thumb In Pointing
-  m_Speed: 4
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -8832113881520088985}
@@ -2203,7 +2203,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 10
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -2257,7 +2257,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Thumb Out
-  m_Speed: 4
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -3768280678402049650}

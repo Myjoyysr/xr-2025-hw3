@@ -23,13 +23,11 @@ public class HandAnimController : MonoBehaviour
 
     public bool transitionTeleport = false;
 
-
     public LayerMask ignoreLayer;
 
     public float positionSmoothing = 1f;
     public float rotationSmoothing = 1f;
     public float verticalSmoothing = 0.9f;
-
 
     public float indexTouch;
     public float thumbTouch;
@@ -37,16 +35,10 @@ public class HandAnimController : MonoBehaviour
     public float trigger;
     private Animator animator;
 
-
-
-
     private Vector3 lastPosition;
     private Quaternion lastRotation;
     private Vector3 velocity;
     private Vector3 angularVelocity;
-
-
-
 
     //physics movement
     [SerializeField] private GameObject followObject;
@@ -59,11 +51,8 @@ public class HandAnimController : MonoBehaviour
     private Transform _followTarget;
     public Rigidbody _body;
 
-
     public Vector3 targetPositionUpdate;
-
     public bool gunLoaded = false;
-
 
     public GameObject bulletPrefab;
     public Transform bulletSpawnPoint;
@@ -71,12 +60,9 @@ public class HandAnimController : MonoBehaviour
 
     //bool isCollision = false;
 
-
     private void Awake(){
         animator = GetComponent<Animator>();
     }
-
-
 
     private void Start(){
         _followTarget = followObject.transform;
@@ -91,8 +77,6 @@ public class HandAnimController : MonoBehaviour
 
         lastPosition = transform.position;
         lastRotation = transform.rotation;
-
-
     }
 
     // Update is called once per frame
@@ -150,12 +134,10 @@ public class HandAnimController : MonoBehaviour
             FingerShoot();
             gunLoaded = false;
         }
-            
     }
 
     private void PhysicsMove(){
         //position
-
         var positionWithOffset = _followTarget.position + positionOffset;
         var rotationWithOffset = _followTarget.rotation * Quaternion.Euler(rotationOffset);
         var distance = Vector3.Distance(positionWithOffset, transform.position);

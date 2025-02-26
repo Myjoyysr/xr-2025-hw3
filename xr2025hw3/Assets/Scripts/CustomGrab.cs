@@ -15,19 +15,15 @@ public class CustomGrab : MonoBehaviour
 
     private Vector3 lastPosition;
     private Quaternion lastRotation;
-    //private Vector3 lastLocalPosition;
 
     public InputActionReference triggerAction;
     private bool trigger;
-
     public Transform holdPosition;
     public float speed = 100f;
 
     public InputActionReference moveButton;
     private bool isMoving = false;
-
     private bool wasMoving = false;
-
     public Transform objectSnapBackMoving;
 
 
@@ -35,7 +31,6 @@ public class CustomGrab : MonoBehaviour
     {
         action.action.Enable();
         triggerAction.action.Enable();
-
 
         // Find the other hand
         foreach(CustomGrab c in transform.parent.GetComponentsInChildren<CustomGrab>())
@@ -61,7 +56,6 @@ public class CustomGrab : MonoBehaviour
                 }
             }
         
-            
             if (grabbedObject){
                 //"normal" grabbing interaction
 
@@ -70,16 +64,9 @@ public class CustomGrab : MonoBehaviour
                     grabbedObject.position = objectSnapBackMoving.position;
                     lastPosition = transform.position;
                     lastRotation = transform.rotation;
-
                 }
 
-
-
-
                 if(!trigger){
-
-
-
                     // 1. calculate the deltas:
                     Vector3 deltaPosition = transform.position - lastPosition;
                     Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);

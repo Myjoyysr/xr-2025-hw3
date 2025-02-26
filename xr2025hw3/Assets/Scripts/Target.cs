@@ -30,13 +30,11 @@ public class Target : MonoBehaviour
         }
     }
 
-
     private void OnTriggerEnter(Collider other){
         Debug.Log("Collision");
         if (goingDown){
             return;
         }
-
 
         if (other.CompareTag(typeTag)){
             Debug.Log("Collision WITH BULLET");

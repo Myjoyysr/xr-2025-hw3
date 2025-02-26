@@ -7,11 +7,9 @@ public class BowMove : MonoBehaviour
     public Transform leftHand;
 
     public float distanceToHand;
-    
     public float rotationSpeed;
     public float floatingSpeed;
     public float floatingHeight = 0.2f;
-
     public float treshold = 0.5f;
 
     private Vector3 startPosition;

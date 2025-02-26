@@ -16,9 +16,6 @@ public class RotateBridge : MonoBehaviour
 
     private bool isTargets = false;
 
-
-
-
     // Update is called once per frame
     void Update()
     {

@@ -1421,7 +1421,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6023730574991254751
 Transform:
   m_ObjectHideFlags: 0
@@ -3023,8 +3023,8 @@ MonoBehaviour:
     m_Gradient:
       serializedVersion: 2
       key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 0.5019608}
-      key2: {r: 0, g: 0, b: 0, a: 0.2509804}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -3047,7 +3047,7 @@ MonoBehaviour:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 4
     m_CustomizeExpandLineDrawPercent: 1
@@ -3440,7 +3440,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 533559
+    m_Bits: 1582135
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3954,7 +3954,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1625545385943720111
 Transform:
   m_ObjectHideFlags: 0
@@ -4632,7 +4632,7 @@ GameObject:
   - component: {fileID: 4628910993144045107}
   m_Layer: 2
   m_Name: Right Controller
-  m_TagString: Untagged
+  m_TagString: Right
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4655,6 +4655,7 @@ Transform:
   - {fileID: 1625545385943720111}
   - {fileID: 3339042361811684773}
   - {fileID: 2603100151776043706}
+  - {fileID: 5418285107681211219}
   m_Father: {fileID: 1302664661431918705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7798388885331573297
@@ -4672,16 +4673,16 @@ MonoBehaviour:
   m_RayInteractor: {fileID: 0}
   m_NearFarInteractor: {fileID: 359656020271257027}
   m_TeleportInteractor: {fileID: 4538964711833317492}
-  m_TeleportMode: {fileID: -8061240218431744966, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  m_TeleportModeCancel: {fileID: 2307464322626738743, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  m_TeleportMode: {fileID: -9199573721968962783, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  m_TeleportModeCancel: {fileID: 3001919216989983466, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_Turn: {fileID: -6493913391331992944, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_SnapTurn: {fileID: -8525429354371678379, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_Move: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_UIScroll: {fileID: -6756787485274679044, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_SmoothMotionEnabled: 0
   m_SmoothTurnEnabled: 0
-  m_NearFarEnableTeleportDuringNearInteraction: 1
-  m_UIScrollingEnabled: 1
+  m_NearFarEnableTeleportDuringNearInteraction: 0
+  m_UIScrollingEnabled: 0
   m_RayInteractorChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4843,7 +4844,11 @@ MonoBehaviour:
   nearObjects: []
   grabbedObject: {fileID: 0}
   action: {fileID: -5194266436686895582, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
-  doubleRotationAction: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  triggerAction: {fileID: -5684558904543120851, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  holdPosition: {fileID: 0}
+  speed: 10
+  moveButton: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  objectSnapBackMoving: {fileID: 5418285107681211219}
 --- !u!135 &4628910993144045107
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4861,7 +4866,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.04
   m_Center: {x: -0.06, y: -0.04, z: -0.02}
@@ -5498,6 +5503,68 @@ MonoBehaviour:
       m_Calls: []
   m_MaterialPropertyBlockHelper: {fileID: 3648384381605459708}
   m_ColorPropertyName: _BaseColor
+--- !u!1 &5476192673682612625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5418285107681211219}
+  m_Layer: 2
+  m_Name: ObjectSnapBackMoving
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5418285107681211219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476192673682612625}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.070586815, y: -0.074715436, z: -0.0045572063, w: 0.9946931}
+  m_LocalPosition: {x: 0.0001, y: -0.0183, z: -0.066}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5791933656542914028}
+  m_LocalEulerAnglesHint: {x: 8.033, y: -8.671, z: -1.135}
+--- !u!1 &5786835406136572620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8325079358139466334}
+  m_Layer: 2
+  m_Name: ObjectSnapBackMoving
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8325079358139466334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5786835406136572620}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.0030609276, y: 0.08404272, z: -0.00025816323, w: 0.9964574}
+  m_LocalPosition: {x: 0, y: -0.0256, z: -0.0514}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2407073060386582704}
+  m_LocalEulerAnglesHint: {x: 0.352, y: 9.642, z: 0}
 --- !u!1 &5887646823194001670
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,7 +6174,7 @@ GameObject:
   - component: {fileID: 5583979101953747168}
   m_Layer: 2
   m_Name: Left Controller
-  m_TagString: Untagged
+  m_TagString: Left
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6130,6 +6197,7 @@ Transform:
   - {fileID: 9095074014187099927}
   - {fileID: 7970812729016776539}
   - {fileID: 9197538389631250451}
+  - {fileID: 8325079358139466334}
   m_Father: {fileID: 1302664661431918705}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4971405177772008925
@@ -6155,8 +6223,8 @@ MonoBehaviour:
   m_UIScroll: {fileID: 2464016903823916871, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_SmoothMotionEnabled: 1
   m_SmoothTurnEnabled: 0
-  m_NearFarEnableTeleportDuringNearInteraction: 1
-  m_UIScrollingEnabled: 1
+  m_NearFarEnableTeleportDuringNearInteraction: 0
+  m_UIScrollingEnabled: 0
   m_RayInteractorChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -6331,7 +6399,11 @@ MonoBehaviour:
   nearObjects: []
   grabbedObject: {fileID: 0}
   action: {fileID: -1289947363739713011, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
-  doubleRotationAction: {fileID: 2526168894431210536, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  triggerAction: {fileID: 2526168894431210536, guid: e0ca4504471ca124088e1e2cfe6804ae, type: 3}
+  holdPosition: {fileID: 0}
+  speed: 10
+  moveButton: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  objectSnapBackMoving: {fileID: 8325079358139466334}
 --- !u!135 &5583979101953747168
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -6349,7 +6421,7 @@ SphereCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_Radius: 0.04
   m_Center: {x: 0.06, y: -0.04, z: -0.02}
@@ -6408,7 +6480,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9095074014187099927
 Transform:
   m_ObjectHideFlags: 0
@@ -7296,7 +7368,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &948523001598480567
 Transform:
   m_ObjectHideFlags: 0
@@ -7929,9 +8001,9 @@ MonoBehaviour:
     m_AdjustGradient: 1
     m_Gradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 0}
-      key1: {r: 1, g: 1, b: 1, a: 0.5019608}
-      key2: {r: 0, g: 0, b: 0, a: 0.2509804}
+      key0: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -7946,17 +8018,17 @@ MonoBehaviour:
       ctime6: 0
       ctime7: 0
       atime0: 193
-      atime1: 8192
-      atime2: 32768
-      atime3: 55705
-      atime4: 65342
+      atime1: 9059
+      atime2: 12722
+      atime3: 32768
+      atime4: 55705
       atime5: 0
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_ColorSpace: -1
+      m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 4
+      m_NumAlphaKeys: 5
     m_CustomizeExpandLineDrawPercent: 1
     m_ExpandModeLineDrawPercent: 0.9
   m_UIHitProperties:

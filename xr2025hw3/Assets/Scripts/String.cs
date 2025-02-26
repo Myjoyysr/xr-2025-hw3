@@ -246,9 +246,6 @@ public class String : MonoBehaviour
         }
 
         //Debug.Log(bowTilted);
-
-
-
         if (bowTilted > tiltThreshold || bowTilted < -tiltThreshold){
 
             if (!swapped){

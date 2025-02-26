@@ -13,10 +13,6 @@ public class SingleFingerCollision : MonoBehaviour
 
     public InputActionReference controlInput;
 
-
-
-
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,18 +27,25 @@ public class SingleFingerCollision : MonoBehaviour
         if (frozen){
             bone.localRotation = frozenBone;
         }
-/*
-        if (0.1f < inputFloat){
+
+        if (0.1f > inputFloat){
             frozen = false;
             animator.SetBool(colliderName, false);
-        }*/
+        }
     }
 
     private void OnTriggerEnter(Collider other){
         //Debug.Log($"Collision, {colliderName}");
-        animator.SetBool(colliderName, true);
-        frozenBone = bone.localRotation;
-        frozen = true;
+        float inputFloat = controlInput.action.ReadValue<float>();
+        if (inputFloat > 0.1f){
+            animator.SetBool(colliderName, true);
+            frozenBone = bone.localRotation;
+            frozen = true;
+        }else{
+            animator.SetBool(colliderName, false);
+            frozenBone = bone.localRotation;
+            frozen = false;
+        }
     }
     private void OnTriggerExit(Collider other){
         animator.SetBool(colliderName, false);
@@ -52,6 +55,11 @@ public class SingleFingerCollision : MonoBehaviour
 
     private void OnTriggerStay(Collider other){
         //   Debug.Log($"Collision, {colliderName}");
-        animator.SetBool(colliderName, true);
+        float inputFloat = controlInput.action.ReadValue<float>();
+        if (inputFloat > 0.1f){
+            animator.SetBool(colliderName, true);
+        }else{
+            animator.SetBool(colliderName, false);
+        }
     }
 }

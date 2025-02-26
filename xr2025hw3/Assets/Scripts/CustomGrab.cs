@@ -23,10 +23,16 @@ public class CustomGrab : MonoBehaviour
     public Transform holdPosition;
     public float speed = 100f;
 
+    public InputActionReference moveButton;
+    private bool isMoving = false;
+
+    private bool wasMoving = false;
+
     private void Start()
     {
         action.action.Enable();
         triggerAction.action.Enable();
+
 
         // Find the other hand
         foreach(CustomGrab c in transform.parent.GetComponentsInChildren<CustomGrab>())
@@ -36,10 +42,11 @@ public class CustomGrab : MonoBehaviour
         }
     }
     
-    void Update()
+    void LateUpdate()
     {
         grabbing = action.action.IsPressed();
         trigger = triggerAction.action.IsPressed();
+        isMoving = moveButton.action.ReadValue<Vector2>().magnitude > 0.1f;
 
         if (grabbing)
         {
@@ -69,6 +76,23 @@ public class CustomGrab : MonoBehaviour
                 }else{
                     grabbedObject.position = Vector3.MoveTowards(grabbedObject.position, holdPosition.position, speed * 10f* Time.deltaTime);
                     grabbedObject.rotation = Quaternion.RotateTowards(grabbedObject.rotation, holdPosition.rotation, speed * 100f * Time.deltaTime);
+
+
+
+                    
+                }
+
+                if(isMoving){
+                        Debug.Log("isMoving");
+                        //Vector3 temp = transform.position;
+                        //temp.y = holdPosition.position.y;
+                        //grabbedObject.position =  temp;
+                        wasMoving = true;
+                        grabbedObject.position = holdPosition.position;
+                }
+                if(wasMoving){
+                    wasMoving = false;
+                    grabbedObject.position = holdPosition.position;
                 }
             }
 

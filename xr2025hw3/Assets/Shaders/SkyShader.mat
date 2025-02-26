@@ -94,7 +94,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Electrity_amount: 14
+    - _Electrity_amount: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -105,7 +105,7 @@ Material:
     - _Parallax: 0.02
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 123
+    - _Scale: 33
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -122,7 +122,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _ClipRect: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 4.2717505, g: 9.907407, b: 17.757082, a: 0.90588236}
+    - _Color: {r: 2.3076131, g: 3.5184805, b: 23.295904, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _NoiseSpeed_Vector_2: {r: 0.01, g: -0.004, b: 0, a: 0}
     - _Speed_Vector2: {r: 0.001, g: 0.001, b: 0, a: 0}

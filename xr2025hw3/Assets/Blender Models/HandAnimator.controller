@@ -42,7 +42,7 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.16821994
+  m_TransitionDuration: 0.052674383
   m_TransitionOffset: 0
   m_ExitTime: 0
   m_HasExitTime: 0
@@ -613,9 +613,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12606966
-  m_TransitionOffset: 0
-  m_ExitTime: 0
+  m_TransitionDuration: 0.07379372
+  m_TransitionOffset: 0.01806157
+  m_ExitTime: 0.43347764
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -779,9 +779,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.1278431
+  m_TransitionDuration: 0.05473881
   m_TransitionOffset: 0
-  m_ExitTime: 0.00034869436
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1687,9 +1687,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.12805016
+  m_TransitionDuration: 0.062776245
   m_TransitionOffset: 0
-  m_ExitTime: 3.1248756e-10
+  m_ExitTime: 0
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -2203,7 +2203,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blend Tree
-  m_Speed: 15
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -2229,7 +2229,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New State
-  m_Speed: 2
+  m_Speed: 15
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -2892090279546745871}

@@ -28,6 +28,9 @@ public class CustomGrab : MonoBehaviour
 
     private bool wasMoving = false;
 
+    public Transform objectSnapBackMoving;
+
+
     private void Start()
     {
         action.action.Enable();
@@ -61,7 +64,22 @@ public class CustomGrab : MonoBehaviour
             
             if (grabbedObject){
                 //"normal" grabbing interaction
+
+                if(wasMoving){
+                    wasMoving = false;
+                    grabbedObject.position = objectSnapBackMoving.position;
+                    lastPosition = transform.position;
+                    lastRotation = transform.rotation;
+
+                }
+
+
+
+
                 if(!trigger){
+
+
+
                     // 1. calculate the deltas:
                     Vector3 deltaPosition = transform.position - lastPosition;
                     Quaternion deltaRotation = transform.rotation * Quaternion.Inverse(lastRotation);
@@ -83,17 +101,15 @@ public class CustomGrab : MonoBehaviour
                 }
 
                 if(isMoving){
-                        Debug.Log("isMoving");
+                        //Debug.Log("isMoving");
                         //Vector3 temp = transform.position;
                         //temp.y = holdPosition.position.y;
                         //grabbedObject.position =  temp;
                         wasMoving = true;
                         grabbedObject.position = holdPosition.position;
                 }
-                if(wasMoving){
-                    wasMoving = false;
-                    grabbedObject.position = holdPosition.position;
-                }
+
+
             }
 
 

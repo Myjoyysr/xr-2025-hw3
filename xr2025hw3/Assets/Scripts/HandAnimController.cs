@@ -69,7 +69,7 @@ public class HandAnimController : MonoBehaviour
     public Transform bulletSpawnPoint;
     public float bulletVelocity;
 
-    bool isCollision = false;
+    //bool isCollision = false;
 
 
     private void Awake(){
